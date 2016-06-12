@@ -91,11 +91,7 @@ if( ! nv_function_exists( 'content_slider' ) )
 			$xtpl = new XTemplate( 'block.' . $block_config['template'] . '.tpl', NV_ROOTDIR . '/themes/' . $block_theme . '/modules/' . $mod_file );
 
 			$xtpl->assign( 'TEMPLATE', $block_theme );
-			$xtpl->assign( 'WIDTH', $block_config['widthimg'] );
-			$xtpl->assign( 'HEIGHT', $block_config['heightimg'] );
 			$xtpl->assign( 'MOD_FILE', $mod_file );
-			$xtpl->assign( 'BUTTON', $block_config['buttonstype'] );
-			$xtpl->assign( 'READMORE', $block_config['readmore'] );
 			
 			if( ! defined( 'BXSLIDER' ) )
 			{
@@ -107,8 +103,7 @@ if( ! nv_function_exists( 'content_slider' ) )
 			foreach( $array_photo as $data )
 			{
 				$data['description'] = nv_clean60( $data['description'], 80 );
-				$data['width'] = $block_config['widthimg'];
-				$data['height'] = $block_config['heightimg'];
+	
 				$data['image'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module . '/images/' . $data['image'];
 				$data['thumb'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module . '/thumbs/' . $data['thumb'];
 				

@@ -2,7 +2,6 @@
 <link rel="stylesheet" type="text/css" href="{NV_BASE_SITEURL}themes/{TEMPLATE}/css/cssvinh/doi_tac.css">
 
 <script type="text/javascript" src="{NV_BASE_SITEURL}themes/{TEMPLATE}/js/jsvinh/jquery.flexisel.js"></script>
-
 <ul id="flexiselDemo3">
 			<!-- BEGIN: loop -->
             <li>
