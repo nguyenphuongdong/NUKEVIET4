@@ -8,9 +8,9 @@
 
 if ( ! defined( 'NV_MAINFILE' ) ) die( 'Stop!!!' );
 
-$lang_translator['author'] = "DANG DINH TU (dlinhvan@g,ail.com)";
+$lang_translator['author'] = "THUCVINH (tieplua.net@gmail.com)";
 $lang_translator['createdate'] = "22/07/2013, 21:41";
-$lang_translator['copyright'] = "@Copyright (C) 2015 WEBDEP24. All rights reserved";
+$lang_translator['copyright'] = "@Copyright (C) 2015 WEBTL. All rights reserved";
 $lang_translator['info'] = "";
 $lang_translator['langtype'] = "lang_module";
  

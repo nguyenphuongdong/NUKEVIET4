@@ -35,34 +35,6 @@ if( ! nv_function_exists( 'content_slider' ) )
 		$html .= '	<td><input type="text" name="config_numrow" size="5" value="' . $data_block['numrow'] . '" class="form-control w100"/></td>';
 		$html .= '</tr>';
 		$html .= '<tr>';
-		$html .= '	<td>' . $lang_block['widthimg'] . '</td>';
-		$html .= '	<td><input type="text" name="config_widthimg" size="30" value="' . $data_block['widthimg'] . '" class="form-control w100"/></td>';
-		$html .= '</tr>';
-		$html .= '<tr>';
-		$html .= '	<td>' . $lang_block['heightimg'] . '</td>';
-		$html .= '	<td><input type="text" name="config_heightimg" size="5" value="' . $data_block['heightimg'] . '" class="form-control w100"/></td>';
-		$html .= '</tr>';
-		$html .= '<tr>';
-		$html .= '<tr>';
-		$html .= '	<td>' . $lang_block['readmore'] . '</td>';
-		$html .= '	<td><input type="text" name="config_readmore" value="' . $data_block['readmore'] . '" class="form-control w100"/></td>';
-		$html .= '</tr>';
-		$html .= '<tr>';
-		$html .= '	<td>' . $lang_block['buttonstype'] . '</td>';
-		$html .= '	<td><select name="config_buttonstype" class="form-control w200">';
-		$langs = array(
-			'none',
-			'small',
-			'large' );
-		foreach( $langs as $lang )
-		{
-			$sel = ( $data_block['buttonstype'] == $lang ) ? ' selected' : '';
-			$html .= '<option value="' . $lang . '" ' . $sel . '>' . $lang . '</option>';
-		}
-		$html .= '	</select></td>';
-		$html .= '</tr>';
-
-		$html .= '<tr>';
 		$html .= '	<td>' . $lang_block['template'] . '</td>';
 		$html .= '	<td><select name="config_template" class="form-control w200">';
 
@@ -87,10 +59,6 @@ if( ! nv_function_exists( 'content_slider' ) )
 		$return['config'] = array();
 		$return['config']['group_id'] = $nv_Request->get_int( 'config_group_id', 'post', 0 );
 		$return['config']['numrow'] = $nv_Request->get_int( 'config_numrow', 'post', 0 );
-		$return['config']['widthimg'] = $nv_Request->get_int( 'config_widthimg', 'post', 0 );
-		$return['config']['heightimg'] = $nv_Request->get_int( 'config_heightimg', 'post', 0 );
-		$return['config']['buttonstype'] = $nv_Request->get_title( 'config_buttonstype', 'post', 0 );
-		$return['config']['readmore'] = $nv_Request->get_title( 'config_readmore', 'post', 0 );
 		$return['config']['template'] = $nv_Request->get_title( 'config_template', 'post', 0 );
 		return $return;
 	}
@@ -99,6 +67,7 @@ if( ! nv_function_exists( 'content_slider' ) )
 	{
 
 		global $global_config, $module_info, $site_mods, $nv_Cache, $module_name;
+		
 		$module = $block_config['module'];
 		$mod_data = $site_mods[$module]['module_data'];
 		$mod_file = $site_mods[$module]['module_file'];
@@ -110,9 +79,9 @@ if( ! nv_function_exists( 'content_slider' ) )
 		$array_photo = $nv_Cache->db( $sql, 'photo_id', $module);
 		if( !empty( $array_photo ) )
 		{
-			if( file_exists( NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $mod_file . '/block.' . $block_config['template'] . '.tpl' ) )
+			if( file_exists( NV_ROOTDIR . '/themes/' . $global_config['module_theme'] . '/modules/' . $mod_file . '/block.' . $block_config['template'] . '.tpl' ) )
 			{
-				$block_theme = $module_info['template'];
+				$block_theme = $global_config['module_theme'];
 			}
 			else
 			{
